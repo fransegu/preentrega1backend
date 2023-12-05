@@ -1,5 +1,5 @@
 import { existsSync, promises } from "fs";
-import { manager } from "./ProductManager.js";
+import { manager } from "../manager/ProductsManager.js";
 const path = "CartsFile.json";
 
 class CartManager {

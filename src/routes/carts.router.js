@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { cartsManager } from "../CartsManager.js";
+import { cartsManager } from "../manager/CartsManager.js";
 const router = Router();
 
-app.post('/', (req, res) => {
+router.post('/', (req, res) => {
     try {
       const newCart = cartsManager.createCart();
       res.status(201).json({ message: 'Carrito creado', cart: newCart });
@@ -11,7 +11,7 @@ app.post('/', (req, res) => {
     }
   });
   
-  app.get('/:cid', async (req, res) => {
+  router.get('/:cid', async (req, res) => {
     const { cid } = req.params;
     try {
       const cart = await cartsManager.getCartById(+cid);
@@ -25,7 +25,7 @@ app.post('/', (req, res) => {
     }
   });
   
-  app.post('/:cid/product/:pid', async (req, res) => {
+  router.post('/:cid/product/:pid', async (req, res) => {
     const { cid, pid } = req.params;
     const { quantity } = req.body;
     try {

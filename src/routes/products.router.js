@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {manager} from "../ProductManager.js";
+import {manager} from "../manager/ProductsManager.js";
 const router = Router()
 
 router.get("/", async (req, res) => {
